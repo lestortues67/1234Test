@@ -27,6 +27,26 @@ import pytz
 
 import git
 
+import requests
+username = 'gittest'
+token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
+
+response = requests.get(
+    'https://eu.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
+        username=username
+    ),
+    headers={'Authorization': 'Token {token}'.format(token=token)}
+)
+if response.status_code == 200:
+    print('CPU quota info:')
+    print(response.content)
+else:
+    print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+
+
+
+
+
 
 # test for git commit C:\Program Files\Git\cmd  
 
