@@ -64,7 +64,7 @@ def my_git_update():
 
     print("origin : ",origin)
     print("Suite à un PUSH depuis PC Local .....")
-    print("***************************************************")
+    print("*************************************************")
     
 
     # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
