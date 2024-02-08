@@ -63,6 +63,7 @@ bootstrap = Bootstrap(app)
 
 @run_with_reloader
 def run_server():
+    print("Passage par : @run_with_reloader ++++++++++++++++++++++++ ")
     app.run(debug=True)
 
 
