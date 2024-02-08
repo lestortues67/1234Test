@@ -50,9 +50,18 @@ def myindex():
 def my_git_update():
     print("une requete POST arrive ici ...")
     # repo = git.Repo('./gittest')
+
+    # Existing local git Repo with 'git.Repo(path_to_dir)'
     repo = git.Repo('./')
     print("repo : ",repo)
-    origin = repo.remotes.origin
+
+    print('repo working DIR : ',repo.working_dir)
+
+
+    origin = repo.remotes.origin # = <git.Remote "origin">
+    # >>> type(origin)
+    # >>> <class 'git.remote.Remote'>
+
     print("origin : ",origin)
     repo.create_head('main',
                      origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
