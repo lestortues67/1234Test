@@ -64,7 +64,7 @@ def my_git_update():
 
     print("origin : ",origin)
     print("Je suis une nouvelle phrase N°2 à 10h50")
-    print("PUSH depuis PC Local ***********************************************")
+    print("PUSH depuis PC Local **********************************************")
     
 
     # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
