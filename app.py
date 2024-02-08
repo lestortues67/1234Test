@@ -59,7 +59,7 @@ def my_git_update():
 
 
     origin = repo.remotes.origin # = <git.Remote "origin">
-    # >>> type(origin)
+    # >>> type(origin) 
     # >>> <class 'git.remote.Remote'>  
 
     print("origin : ",origin)
