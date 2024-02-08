@@ -114,6 +114,11 @@ def myreloader():
 
 
 
+@app.route('/papa', methods=['GET', 'POST'])
+def mypapa():
+    return render_template('index.html') 
+
+
 @app.route('/', methods=['GET', 'POST'])
 def myindex():
     return render_template('index.html') 
