@@ -63,8 +63,7 @@ def my_git_update():
     # >>> <class 'git.remote.Remote'>  
 
     print("origin : ",origin)
-    print("PUSH depuis PC Local .....")
-    print("*************************************************")
+    print("PUSH depuis PC Local *************************************************")
     
 
     # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
