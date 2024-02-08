@@ -83,6 +83,8 @@ bootstrap = Bootstrap(app)
 def myreloader():
     # reload the app
 
+    print("Passage dans /reloader RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
+
     username = 'gittest'
     token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
 
