@@ -103,7 +103,7 @@ def myreloader():
         'https://eu.pythonanywhere.com/api/v0/user/{username}/webapps/gittest.eu.pythonanywhere.com/reload/'.format(
         username=username
         ),
-        headers={'Authorization': 'Token {token}'.format(token=token)}
+        data={'Authorization': 'Token {token}'.format(token=token)}
         )
     
     return
