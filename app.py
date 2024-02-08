@@ -60,8 +60,8 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 bootstrap = Bootstrap(app)
 
 
-
-def reloader():
+@app.route('/reloader', methods=['GET', 'POST'])
+def myreloader():
     # reload the app
 
     username = 'gittest'
@@ -85,10 +85,6 @@ def reloader():
         )
     
     return
-
-
-
-
 
 
 
