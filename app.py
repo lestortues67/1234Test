@@ -119,7 +119,7 @@ def my_git_update():
     # >>> <class 'git.remote.Remote'>  
 
     print("origin : ",origin)
-    print("Je suis une nouvelle phrase N°2 à 10h50")
+    print("Je suis une nouvelle phrase N°3 à 12h19")
     print("PUSH depuis PC Local **********************************************")
     
 
