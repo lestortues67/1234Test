@@ -48,7 +48,8 @@ def myindex():
 # git@github.com:lestortues67/gittest.git
 @app.route('/git_update', methods=['POST'])
 def my_git_update():
-    repo = git.Repo('./gittest')
+    # repo = git.Repo('./gittest')
+    repo = git.Repo('./')
     print("repo : ",repo)
     origin = repo.remotes.origin
     print("origin : ",origin)
