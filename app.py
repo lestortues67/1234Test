@@ -59,6 +59,39 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 bootstrap = Bootstrap(app)
 
+
+
+def reloader():
+    # reload the app
+
+    username = 'gittest'
+    token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
+
+    # response = requests.get(
+    #     'https://eu.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
+    #     username=username
+    #     ),
+    #     headers={'Authorization': 'Token {token}'.format(token=token)}
+    #     )
+
+
+    # https://eu.pythonanywhere.com/api/v0/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/
+
+    requests.post(
+        'https://eu.pythonanywhere.com/api/v0/user/{username}/webapps/gittest.eu.pythonanywhere.com/reload/'.format(
+        username=username
+        ),
+        headers={'Authorization': 'Token {token}'.format(token=token)}
+        )
+    
+    return
+
+
+
+
+
+
+
 @app.route('/', methods=['GET', 'POST'])
 def myindex():
     return render_template('index.html') 
