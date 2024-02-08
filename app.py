@@ -101,12 +101,14 @@ def myreloader():
     #https://requests.readthedocs.io/en/latest/user/quickstart/#make-a-request
     # r = requests.post('https://httpbin.org/post', data={'key': 'value'})
 
-    requests.post(
+    rr = requests.post(
         'https://eu.pythonanywhere.com/api/v0/user/{username}/webapps/gittest.eu.pythonanywhere.com/reload/'.format(
         username=username
         ),
         data={'Authorization': 'Token {token}'.format(token=token)}
         )
+
+    print("Voici la réponse à la requete POST : ",rr)
     
     return 'ok'
 
