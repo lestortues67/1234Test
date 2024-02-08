@@ -67,8 +67,9 @@ def my_git_update():
     
 
     # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    repo.create_head('master',origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
     
-    # origin.pull()
+    origin.pull()
     print("'origin.pull()' a été fait ...")
     return '', 200
 
