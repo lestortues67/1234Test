@@ -106,7 +106,7 @@ def myreloader():
         data={'Authorization': 'Token {token}'.format(token=token)}
         )
     
-    return
+    return 'ok'
 
 
 
