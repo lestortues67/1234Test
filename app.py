@@ -64,7 +64,10 @@ def my_git_update():
 
     print("origin : ",origin)
     print("**************************************************")
-    repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    
+
+    # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    
     origin.pull()
     print("'origin.pull()' a été fait ...")
     return '', 200
