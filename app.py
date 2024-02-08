@@ -22,6 +22,7 @@ locale.setlocale(locale.LC_TIME, "fr_FR")
 import time
 from logging import FileHandler, WARNING
 import uuid
+from werkzeug.serving import run_with_reloader
 
 import pytz
 
@@ -58,6 +59,12 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 bootstrap = Bootstrap(app)
+
+
+@run_with_reloader
+def run_server():
+    app.run(debug=True)
+
 
 
 @app.route('/reloader', methods=['GET', 'POST'])
