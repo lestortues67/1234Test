@@ -38,6 +38,25 @@ response = requests.get(
     ),
     headers={'Authorization': 'Token {token}'.format(token=token)}
 )
+
+consolesUsed = requests.get(
+    'https://eu.pythonanywhere.com/api/v0/user/{username}/consoles/'.format(
+        username=username
+    ),
+    headers={'Authorization': 'Token {token}'.format(token=token)}
+)
+
+if consolesUsed.status_code == 200:
+    print('Les consoles en cours sont :')
+    print(consolesUsed.content)
+else:
+    print('Got unexpected status code {}: {!r}'.format(consolesUsed.status_code, consolesUsed.content))
+
+
+
+
+
+
 if response.status_code == 200:
     print('CPU quota info:')
     print(response.content)
@@ -84,6 +103,9 @@ def myreloader():
 
 
     # https://eu.pythonanywhere.com/api/v0/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/
+
+    #https://requests.readthedocs.io/en/latest/user/quickstart/#make-a-request
+    # r = requests.post('https://httpbin.org/post', data={'key': 'value'})
 
     requests.post(
         'https://eu.pythonanywhere.com/api/v0/user/{username}/webapps/gittest.eu.pythonanywhere.com/reload/'.format(
