@@ -63,6 +63,7 @@ def my_git_update():
     # >>> <class 'git.remote.Remote'>  
 
     print("origin : ",origin)
+    print("Je suis une nouvelle phrase à 10h49")
     print("PUSH depuis PC Local ***********************************************")
     
 
