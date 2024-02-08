@@ -48,11 +48,14 @@ def myindex():
 # git@github.com:lestortues67/gittest.git
 @app.route('/git_update', methods=['POST'])
 def my_git_update():
-    repo = git.Repo('./orbe')
+    repo = git.Repo('./gittest')
+    print("repo : ",repo)
     origin = repo.remotes.origin
+    print("origin : ",origin)
     repo.create_head('main',
                      origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
     origin.pull()
+    print("'origin.pull()' a été fait ...")
     return '', 200
 
 @app.errorhandler(404)
