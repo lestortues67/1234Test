@@ -63,8 +63,7 @@ def my_git_update():
     # >>> <class 'git.remote.Remote'>  
 
     print("origin : ",origin)
-    repo.create_head('main',
-                     origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
     origin.pull()
     print("'origin.pull()' a été fait ...")
     return '', 200
