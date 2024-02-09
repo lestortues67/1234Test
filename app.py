@@ -29,7 +29,7 @@ import git
 
 import requests
 # http://lestortues67.eu.pythonanywhere.com/
-requests.post('http://www.eu.pythonanywhere.com/user/lestortues67/webapps/lestortues67.eu.pythonanywhere.com//reload/')
+requests.post('http://www.eu.pythonanywhere.com/user/lestortues67/webapps/lestortues67.eu.pythonanywhere.com/reload/')
 
 username = 'gittest'
 token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
