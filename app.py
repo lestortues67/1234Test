@@ -33,6 +33,7 @@ import requests
 
 #14h57 le 13.02.2024 
 #bravo 
+#test pour PAW à 15h06
 
 requests.post('http://www.eu.pythonanywhere.com/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/')
 
