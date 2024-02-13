@@ -32,7 +32,7 @@ import requests
 # http://gittest.eu.pythonanywhere.com/papa2
 
 #14h57 le 13.02.2024 
-
+#bravo 
 
 requests.post('http://www.eu.pythonanywhere.com/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/')
 
