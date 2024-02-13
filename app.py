@@ -29,9 +29,9 @@ import git
 
 import requests
 # http://lestortues67.eu.pythonanywhere.com/
-
-
 # http://gittest.eu.pythonanywhere.com/papa2
+
+#14h57 le 13.02.2024 
 
 
 requests.post('http://www.eu.pythonanywhere.com/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/')
