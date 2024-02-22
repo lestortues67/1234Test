@@ -28,57 +28,48 @@ import pytz
 import git
 
 import requests
-# http://lestortues67.eu.pythonanywhere.com/
-# http://gittest.eu.pythonanywhere.com/papa2
-
-#14h57 le 13.02.2024 
-#bravo 
-#test pour PAW à 15h06
-
-requests.post('http://www.eu.pythonanywhere.com/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/')
-
-username = 'gittest'
-token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
-
-response = requests.get(
-    'https://eu.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
-        username=username
-    ),
-    headers={'Authorization': 'Token {token}'.format(token=token)}
-)
-
-consolesUsed = requests.get(
-    'https://eu.pythonanywhere.com/api/v0/user/{username}/consoles/'.format(
-        username=username
-    ),
-    headers={'Authorization': 'Token {token}'.format(token=token)}
-)
-
-if consolesUsed.status_code == 200:
-    print('Les consoles en cours sont :')
-    print(consolesUsed.content)
-else:
-    print('Got unexpected status code {}: {!r}'.format(consolesUsed.status_code, consolesUsed.content))
 
 
+def oldJunk ():
+    # http://lestortues67.eu.pythonanywhere.com/
+    # http://gittest.eu.pythonanywhere.com/papa2
 
+    #14h57 le 13.02.2024 
+    #bravo 
+    #test pour PAW à 15h06
 
+    requests.post('http://www.eu.pythonanywhere.com/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/')
 
+    username = 'gittest'
+    token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
 
-if response.status_code == 200:
-    print('CPU quota info:')
-    print(response.content)
-else:
-    print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+    response = requests.get(
+        'https://eu.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
+            username=username
+        ),
+        headers={'Authorization': 'Token {token}'.format(token=token)}
+    )
 
+    consolesUsed = requests.get(
+        'https://eu.pythonanywhere.com/api/v0/user/{username}/consoles/'.format(
+            username=username
+        ),
+        headers={'Authorization': 'Token {token}'.format(token=token)}
+    )
 
+    if consolesUsed.status_code == 200:
+        print('Les consoles en cours sont :')
+        print(consolesUsed.content)
+    else:
+        print('Got unexpected status code {}: {!r}'.format(consolesUsed.status_code, consolesUsed.content))
 
+    if response.status_code == 200:
+        print('CPU quota info:')
+        print(response.content)
+    else:
+        print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
 
-
-
-# test for git commit C:\Program Files\Git\cmd  
-
-
+    # test for git commit C:\Program Files\Git\cmd  
 
 app = Flask(__name__)
 app.debug = True
@@ -138,6 +129,14 @@ def myindex():
 @app.route('/git_update', methods=['POST'])
 def my_git_update():
     print("une requete POST arrive ici ...")
+
+    # récupérer les datas POST 
+    j = request.get_json()
+    print("Les datas POST  : ",j)
+
+
+
+
     # repo = git.Repo('./gittest')
 
     # Existing local git Repo with 'git.Repo(path_to_dir)'
