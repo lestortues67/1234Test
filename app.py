@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 17h24
+Date : 22/02/2024 à 17h25
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -57,7 +57,7 @@ def my_git_update():
     print('repo working DIR : ',repo.working_dir)
 
     brancheExiste = gitLibrary.localBranchIsPresent(repo, branchToPull)
-    print("Cette branche existe sur REMOTE ? ")
+    print("Cette branche existe sur LOCAL ? ")
     print(brancheExiste)
     print(" ")
 
