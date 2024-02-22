@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 15h50
+Date : 22/02/2024 à 16h35
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -143,6 +143,7 @@ def my_git_update():
     if not(brancheExiste):
         # La branche n'existe PAS en LOCAL il faut la créer
         gitLibrary.createBranch(repo, branchToPull)
+        print("Création d'une NOUVELLE branche ")
 
     gitLibrary.pullABranch(repo, branchToPull)
     # re-load the app 
