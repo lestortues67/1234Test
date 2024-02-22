@@ -133,6 +133,8 @@ def my_git_update():
     # récupérer les datas POST 
     j = request.get_json()
     print("Les datas POST  : ",j)
+    print(" ")
+    print(" ")
 
     print("La branche qui a fait GIT PUSH est : ",j['ref'])
 
