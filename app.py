@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h57
+Date : 22/02/2024 à 12h58
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -102,7 +102,7 @@ def myreloader():
  
 
 
-@app.route('/papa3', methods=['GET', 'POST'])
+@app.route('/papa', methods=['GET', 'POST'])
 def mypapa():
     return render_template('index.html') 
 
