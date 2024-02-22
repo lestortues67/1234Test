@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h08
+Date : 22/02/2024 à 12h20
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -137,7 +137,8 @@ def my_git_update():
     print(" ")
     print("La branche qui a fait GIT PUSH est : ")
     # refs/heads/master
-    print(j['ref'][10:])
+    print("j['ref'] : ",j['ref'])
+    print("j['ref'][10:] : ",j['ref'][10:])
 
     # repo = git.Repo('./gittest')
 
