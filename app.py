@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h45 
+Date : 22/02/2024 à 12h50
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -130,49 +130,48 @@ def my_git_update():
 
     repo = gitLibrary.makeRepo('./')
 
-    print("Cette branche existe sur REMOTE ? ")
-    print(gitLibrary.remoteBranchIsPresent(repo, j['ref'][11:]))
-    print(" ")
-
-
-
-
-    # repo = git.Repo('./gittest')
-
-    # Existing local git Repo with 'git.Repo(path_to_dir)'
-    # repo = git.Repo('./')
     print("repo : ",repo)
-
     print('repo working DIR : ',repo.working_dir)
 
+    brancheExiste = gitLibrary.remoteBranchIsPresent(repo, j['ref'][11:])
+    print("Cette branche existe sur REMOTE ? ")
+    print(brancheExiste)
+    print(" ")
 
-    origin = repo.remotes.origin # = <git.Remote "origin">
-    # >>> type(origin) 
-    # >>> <class 'git.remote.Remote'>  
+    if (brancheExiste):
+        gitLibrary.pullABranch(repo, j['ref'][11:])
+        # re-load the app 
 
-    print("origin : ",origin)
-    print("Je suis une nouvelle phrase N°3 à 12h19")
-    print("PUSH depuis PC Local à 15h00 **********************************************")
+        # Commande Bash à exécuter
+        #touch est un mot important pour que cela fonctionne 
+        commande = "touch /var/www/gittest_eu_pythonanywhere_com_wsgi.py"
+
+        # Exécution de la commande Bash
+        resultat = subprocess.run(commande, shell=True, capture_output=True, text=True)
+
+        # Affichage du résultat
+        print("Sortie de la commande :", resultat.stdout)    
+        return 'ok', 200
+    else:
+        return "error branche n'existe pas...", 201
+
+
+
     
 
-    # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
-    repo.create_head('master',origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+
+    # origin = repo.remotes.origin # = <git.Remote "origin">
+    # # >>> type(origin) 
+    # # >>> <class 'git.remote.Remote'>  
+    # print("origin : ",origin)
     
-    origin.pull()
-    print("'origin.pull()' a été fait ...")
-    # re-load the app 
+    # repo.create_head('master',origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+    
+    # origin.pull()
+    #print("'origin.pull()' a été fait ...")
+    
 
-    # Commande Bash à exécuter
-    #touch est un mot important pour que cela fonctionne 
-    commande = "touch /var/www/gittest_eu_pythonanywhere_com_wsgi.py"
-
-    # Exécution de la commande Bash
-    resultat = subprocess.run(commande, shell=True, capture_output=True, text=True)
-
-    # Affichage du résultat
-    print("Sortie de la commande :", resultat.stdout)
-
-    return 'ok', 200
+    
 
 @app.errorhandler(404)
 def page_not_found(e):
