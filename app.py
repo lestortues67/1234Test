@@ -17,89 +17,12 @@ import requests
 
 import gitLibrary
 
-
-def oldJunk ():
-    # http://lestortues67.eu.pythonanywhere.com/
-    # http://gittest.eu.pythonanywhere.com/papa2
-
-    #14h57 le 13.02.2024 
-    #bravo 
-    #test pour PAW à 15h06
-
-    requests.post('http://www.eu.pythonanywhere.com/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/')
-
-    username = 'gittest'
-    token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
-
-    response = requests.get(
-        'https://eu.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
-            username=username
-        ),
-        headers={'Authorization': 'Token {token}'.format(token=token)}
-    )
-
-    consolesUsed = requests.get(
-        'https://eu.pythonanywhere.com/api/v0/user/{username}/consoles/'.format(
-            username=username
-        ),
-        headers={'Authorization': 'Token {token}'.format(token=token)}
-    )
-
-    if consolesUsed.status_code == 200:
-        print('Les consoles en cours sont :')
-        print(consolesUsed.content)
-    else:
-        print('Got unexpected status code {}: {!r}'.format(consolesUsed.status_code, consolesUsed.content))
-
-    if response.status_code == 200:
-        print('CPU quota info:')
-        print(response.content)
-    else:
-        print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
-
-    # test for git commit C:\Program Files\Git\cmd  
-
 app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 bootstrap = Bootstrap(app)
-
-
-@app.route('/reloader', methods=['GET', 'POST'])
-def myreloader():
-    # reload the app
-
-    print("Passage dans /reloader RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
-
-    username = 'gittest'
-    token = 'a218716ef32480f67b5081a3a107e64fd2d2121c'
-
-    # response = requests.get(
-    #     'https://eu.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
-    #     username=username
-    #     ),
-    #     headers={'Authorization': 'Token {token}'.format(token=token)}
-    #     )
-
-
-    # https://eu.pythonanywhere.com/api/v0/user/gittest/webapps/gittest.eu.pythonanywhere.com/reload/
-
-    #https://requests.readthedocs.io/en/latest/user/quickstart/#make-a-request
-    # r = requests.post('https://httpbin.org/post', data={'key': 'value'})
-
-    rr = requests.post(
-        'https://eu.pythonanywhere.com/api/v0/user/{username}/webapps/gittest.eu.pythonanywhere.com/reload/'.format(
-        username=username
-        ),
-        data={'Authorization': 'Token {token}'.format(token=token)}
-        )
-
-    print("Voici la réponse à la requete POST : ",rr)
-    
-    return 'ok'
- 
 
 
 @app.route('/papa', methods=['GET', 'POST'])
