@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h39
+Date : 22/02/2024 à 12h40
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -131,7 +131,7 @@ def my_git_update():
     print("j['ref'] : ",j['ref'])
     print("j['ref'][11:] : ",j['ref'][11:])
 
-    repo = makeRepo('./')
+    repo = gitLibrary.makeRepo('./')
 
     # repo = git.Repo('./gittest')
 
