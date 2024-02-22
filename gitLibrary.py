@@ -110,7 +110,7 @@ def switchToBranch(p_repo, p_branchName):
 def pullABranch(p_repo, p_branchName):
     # git pull sur une branche en particulier
     try :
-        repo.git.pull('origin', p_branchName)
+        p_repo.git.pull('origin', p_branchName)
         return True
     except Exception as e:
         print("Impossible de faire git pull origin ",p_branchName)
