@@ -135,8 +135,8 @@ def my_git_update():
     print("Les datas POST  : ",j)
     print(" ")
     print(" ")
-
-    print("La branche qui a fait GIT PUSH est : ",j['ref'])
+    print("La branche qui a fait GIT PUSH est : ")
+    print(j['ref'])
 
     
 
