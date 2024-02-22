@@ -15,7 +15,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
-from random import choice
+from random import choice 
 import locale
 locale.setlocale(locale.LC_TIME, "fr_FR")
 
