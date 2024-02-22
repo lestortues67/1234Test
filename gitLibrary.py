@@ -7,17 +7,9 @@ Description :
 """
    
 import datetime
-import string
 import pytz
-from random import choice
 import locale 
 locale.setlocale(locale.LC_TIME, "fr_FR")
-
-import time
-from logging import FileHandler, WARNING
-import os
-
-import requests
 
 from git import Repo
 
