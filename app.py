@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h58
+Date : 22/02/2024 à 15h50
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -128,37 +128,35 @@ def my_git_update():
     print("j['ref'] : ",j['ref'])
     print("j['ref'][11:] : ",j['ref'][11:])
 
+    branchToPull = j['ref'][11:]
+
     repo = gitLibrary.makeRepo('./')
 
     print("repo : ",repo)
     print('repo working DIR : ',repo.working_dir)
 
-    brancheExiste = gitLibrary.remoteBranchIsPresent(repo, j['ref'][11:])
+    brancheExiste = gitLibrary.remoteBranchIsPresent(repo, branchToPull)
     print("Cette branche existe sur REMOTE ? ")
     print(brancheExiste)
     print(" ")
 
-    if (brancheExiste):
-        gitLibrary.pullABranch(repo, j['ref'][11:])
-        # re-load the app 
+    if not(brancheExiste):
+        # La branche n'existe PAS en LOCAL il faut la créer
+        gitLibrary.createBranch(repo, branchToPull)
 
-        # Commande Bash à exécuter
-        #touch est un mot important pour que cela fonctionne 
-        commande = "touch /var/www/gittest_eu_pythonanywhere_com_wsgi.py"
+    gitLibrary.pullABranch(repo, branchToPull)
+    # re-load the app 
 
-        # Exécution de la commande Bash
-        resultat = subprocess.run(commande, shell=True, capture_output=True, text=True)
+    # Commande Bash à exécuter
+    #touch est un mot important pour que cela fonctionne 
+    commande = "touch /var/www/gittest_eu_pythonanywhere_com_wsgi.py"
 
-        # Affichage du résultat
-        print("Sortie de la commande :", resultat.stdout)    
-        return 'ok', 200
-    else:
-        return "error branche n'existe pas...", 201
+    # Exécution de la commande Bash
+    resultat = subprocess.run(commande, shell=True, capture_output=True, text=True)
 
-
-
-    
-
+    # Affichage du résultat
+    print("Infos sur re-load :", resultat.stdout)    
+    return 'ok', 200
 
     # origin = repo.remotes.origin # = <git.Remote "origin">
     # # >>> type(origin) 
