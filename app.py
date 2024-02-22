@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h40 
+Date : 22/02/2024 à 12h45
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -129,6 +129,13 @@ def my_git_update():
     print("j['ref'][11:] : ",j['ref'][11:])
 
     repo = gitLibrary.makeRepo('./')
+
+    print("Cette branche existe sur REMOTE ? ")
+    print(gitLibrary.remoteBranchIsPresent(repo, j['ref'][11:]))
+    print(" ")
+
+
+
 
     # repo = git.Repo('./gittest')
 
