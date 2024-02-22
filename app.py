@@ -58,7 +58,7 @@ def my_git_update():
     print("repo : ",repo)
     print('repo working DIR : ',repo.working_dir)
 
-    brancheExiste = gitLibrary.remoteBranchIsPresent(repo, branchToPull)
+    brancheExiste = gitLibrary.localBranchIsPresent(repo, branchToPull)
     print("Cette branche existe sur REMOTE ? ")
     print(brancheExiste)
     print(" ")
