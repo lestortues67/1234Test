@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 16h35
+Date : 22/02/2024 à 16h40
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -82,29 +82,10 @@ def my_git_update():
     print("Infos sur re-load :", resultat.stdout)    
     return 'ok', 200
 
-    # origin = repo.remotes.origin # = <git.Remote "origin">
-    # # >>> type(origin) 
-    # # >>> <class 'git.remote.Remote'>  
-    # print("origin : ",origin)
-    
-    # repo.create_head('master',origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
-    
-    # origin.pull()
-    #print("'origin.pull()' a été fait ...")
-    
-
-    
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-
 @app.errorhandler(500)
 def internal_server_error(e):
-    return render_template('500.html'), 500
-
-
-
-
-        
+    return render_template('500.html'), 500       
