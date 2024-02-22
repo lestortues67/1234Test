@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h30
+Date : 22/02/2024 à 12h35
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -7,23 +7,11 @@ Description : app "codebase" une base de données qui contient TOUTE notre base 
 de code informatique. 
 """
 import subprocess
-import datetime
-import string
+
 from flask import Flask, request, render_template, session, redirect, url_for, flash, jsonify
 from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
-from flask_sqlalchemy import SQLAlchemy
-from random import choice 
 import locale
 locale.setlocale(locale.LC_TIME, "fr_FR")
-
-import time
-from logging import FileHandler, WARNING
-import uuid
-
-import pytz
 
 import git
 
@@ -142,10 +130,12 @@ def my_git_update():
     print("j['ref'] : ",j['ref'])
     print("j['ref'][11:] : ",j['ref'][11:])
 
+    repo = makeRepo('./')
+
     # repo = git.Repo('./gittest')
 
     # Existing local git Repo with 'git.Repo(path_to_dir)'
-    repo = git.Repo('./')
+    # repo = git.Repo('./')
     print("repo : ",repo)
 
     print('repo working DIR : ',repo.working_dir)
