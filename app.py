@@ -111,7 +111,7 @@ def myreloader():
     print("Voici la réponse à la requete POST : ",rr)
     
     return 'ok'
-
+ 
 
 
 @app.route('/papa3', methods=['GET', 'POST'])
