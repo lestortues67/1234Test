@@ -136,7 +136,8 @@ def my_git_update():
     print(" ")
     print(" ")
     print("La branche qui a fait GIT PUSH est : ")
-    print(j['ref'])
+    # refs/heads/master
+    print(j['ref'][10:])
 
     # repo = git.Repo('./gittest')
 
