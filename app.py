@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 17h00
+Date : 22/02/2024 à 11h10
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -133,6 +133,10 @@ def my_git_update():
     # récupérer les datas POST 
     j = request.get_json()
     print("Les datas POST  : ",j)
+
+    print("La branche qui a fait GIT PUSH est : ",j['ref'])
+
+    
 
 
 
