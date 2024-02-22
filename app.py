@@ -13,8 +13,6 @@ from flask_bootstrap import Bootstrap
 import locale
 locale.setlocale(locale.LC_TIME, "fr_FR")
 
-import requests
-
 import gitLibrary
 
 app = Flask(__name__)
