@@ -1,5 +1,5 @@
 """
-Date : 22/02/2024 à 12h35
+Date : 22/02/2024 à 12h39
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
@@ -17,7 +17,8 @@ import git
 
 import requests
 
-from gitLibrary import *
+# from gitLibrary import *
+import gitLibrary
 
 
 def oldJunk ():
