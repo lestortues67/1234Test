@@ -1,12 +1,12 @@
 """
-Date : 22/02/2024 à 12h00
+Date : 22/02/2024 à 12h05
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py 
 Description : app "codebase" une base de données qui contient TOUTE notre base des connaissances
 de code informatique. 
 """
-
+import subprocess
 import datetime
 import string
 from flask import Flask, request, render_template, session, redirect, url_for, flash, jsonify
@@ -132,16 +132,11 @@ def my_git_update():
 
     # récupérer les datas POST 
     j = request.get_json()
-    #print("Les datas POST  : ",j)
+    print("Les datas POST  : ",j)
     print(" ")
     print(" ")
     print("La branche qui a fait GIT PUSH est : ")
     print(j['ref'])
-
-    
-
-
-
 
     # repo = git.Repo('./gittest')
 
@@ -166,7 +161,19 @@ def my_git_update():
     
     origin.pull()
     print("'origin.pull()' a été fait ...")
-    return '', 200
+    # re-load the app 
+
+    # Commande Bash à exécuter
+    #touch est un mot important pour que cela fonctionne 
+    commande = "touch /var/www/gittest_eu_pythonanywhere_com_wsgi.py"
+
+    # Exécution de la commande Bash
+    resultat = subprocess.run(commande, shell=True, capture_output=True, text=True)
+
+    # Affichage du résultat
+    print("Sortie de la commande :", resultat.stdout)
+
+    return 'ok', 200
 
 @app.errorhandler(404)
 def page_not_found(e):
