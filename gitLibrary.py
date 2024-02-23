@@ -138,7 +138,7 @@ def getStatus(p_repo):
 def makeRepo(p_dir):
     return Repo(p_dir)    
 
-def merge(p_repo, p_branchNameSource, p_branchNameDestination):
+def cmd_git_merge(p_repo, p_branchNameSource, p_branchNameDestination):
     # Merger les branches p_branchNameSource vers p_branchNameDestination
 
     # Au préalable s'assurer que les noms des branches existent 
@@ -156,6 +156,19 @@ def merge(p_repo, p_branchNameSource, p_branchNameDestination):
         return True
     else:
         return False
+
+def cmd_git_config(p_repo, p_userName, p_userEmail):
+    # Accès à la configuration du dépôt
+    config = p_repo.config_writer()
+
+    # Configuration d'une option Git spécifique
+    config.set_value('user', 'name', p_userName)
+    config.set_value('user', 'email', p_userEmail)
+
+    # Enregistrer les modifications de configuration
+    config.release()
+
+
 
     
 
