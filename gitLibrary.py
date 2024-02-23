@@ -74,7 +74,6 @@ def printRemoteBranches(p_repo):
 def remoteBranchIsPresent(p_repo, p_branchName):
     # vérifier si une branche REMOTE existe true/false
     return p_repo.remote().refs.__contains__(p_branchName)
-    
 
 def localBranchIsPresent(p_repo, p_branchName):
     # vérifier si une branche existe true/false
@@ -138,3 +137,25 @@ def getStatus(p_repo):
 
 def makeRepo(p_dir):
     return Repo(p_dir)    
+
+def merge(p_repo, p_branchNameSource, p_branchNameDestination):
+    # Merger les branches p_branchNameSource vers p_branchNameDestination
+
+    # Au préalable s'assurer que les noms des branches existent 
+    if (localBranchIsPresent(p_repo, p_branchNameSource) and localBranchIsPresent(p_repo, p_branchNameDestination)):
+        # Nom des branches à merger
+        branche_source = 'nom_de_la_branche_source'
+        branche_destination = 'nom_de_la_branche_destination'
+
+        # Accès aux branches
+        branche_source = p_repo.branches[p_branchNameSource]
+        branche_destination = p_repo.branches[p_branchNameDestination]
+
+        # Effectuer le merge
+        p_repo.git.merge(branche_source, branche_destination)
+        return True
+    else:
+        return False
+
+    
+
